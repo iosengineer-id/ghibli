@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,91 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Ghibli" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xet-ck-7K4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" rowHeight="109" id="Op5-ZO-LBw" customClass="MovieCell" customModule="Ghibli" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="109"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Op5-ZO-LBw" id="iDR-Cg-8jp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3F-4c-BRZ">
+                                                    <rect key="frame" x="15" y="16" width="345" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neP-Jc-gTA">
+                                                    <rect key="frame" x="15" y="42" width="345" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="director: Director" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGI-29-IBz">
+                                                    <rect key="frame" x="15" y="83" width="97" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year: 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aM4-zp-EtL">
+                                                    <rect key="frame" x="298" y="83" width="62" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GGI-29-IBz" firstAttribute="bottom" secondItem="iDR-Cg-8jp" secondAttribute="bottomMargin" id="2uN-va-VrK"/>
+                                                <constraint firstItem="aM4-zp-EtL" firstAttribute="bottom" secondItem="iDR-Cg-8jp" secondAttribute="bottomMargin" id="CQj-jA-rf5"/>
+                                                <constraint firstItem="aM4-zp-EtL" firstAttribute="trailing" secondItem="iDR-Cg-8jp" secondAttribute="trailingMargin" id="FFE-zx-hBP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="neP-Jc-gTA" secondAttribute="trailing" id="O63-qa-oT6"/>
+                                                <constraint firstItem="d3F-4c-BRZ" firstAttribute="leading" secondItem="iDR-Cg-8jp" secondAttribute="leadingMargin" id="PZR-0H-xh1"/>
+                                                <constraint firstItem="GGI-29-IBz" firstAttribute="top" secondItem="neP-Jc-gTA" secondAttribute="bottom" constant="20.5" id="YT3-GI-WMf"/>
+                                                <constraint firstItem="GGI-29-IBz" firstAttribute="leading" secondItem="iDR-Cg-8jp" secondAttribute="leadingMargin" id="b3s-r8-8FS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="d3F-4c-BRZ" secondAttribute="trailing" id="gDx-ZO-cEz"/>
+                                                <constraint firstItem="neP-Jc-gTA" firstAttribute="leading" secondItem="iDR-Cg-8jp" secondAttribute="leadingMargin" id="poR-1V-YqL"/>
+                                                <constraint firstItem="neP-Jc-gTA" firstAttribute="top" secondItem="d3F-4c-BRZ" secondAttribute="bottom" constant="5" id="u2V-30-iZc"/>
+                                                <constraint firstItem="d3F-4c-BRZ" firstAttribute="top" secondItem="iDR-Cg-8jp" secondAttribute="topMargin" constant="5" id="y6r-JX-Da6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="neP-Jc-gTA" id="Q8s-Ta-hSe"/>
+                                            <outlet property="directorLabel" destination="GGI-29-IBz" id="N1c-hP-4yI"/>
+                                            <outlet property="movieTitleLabel" destination="d3F-4c-BRZ" id="Kz2-iP-z3p"/>
+                                            <outlet property="yearLabel" destination="aM4-zp-EtL" id="H8c-Sv-3Iv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dNN-QS-Iwc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WOS-Td-pgZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xet-ck-7K4" secondAttribute="bottom" id="1Bf-tl-oZ6"/>
+                            <constraint firstItem="Xet-ck-7K4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="j3i-EM-rK2"/>
+                            <constraint firstItem="Xet-ck-7K4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tlL-Qz-oNf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xet-ck-7K4" secondAttribute="trailing" id="uHn-fw-GYg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Xet-ck-7K4" id="EW3-wR-8EP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="71.514242878560722"/>
         </scene>
     </scenes>
 </document>

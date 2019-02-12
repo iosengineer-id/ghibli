@@ -12,8 +12,11 @@
 		AEB31DF92212D83800DA9695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB31DF72212D83800DA9695 /* Main.storyboard */; };
 		AEB31DFB2212D83A00DA9695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEB31DFA2212D83A00DA9695 /* Assets.xcassets */; };
 		AEB31DFE2212D83A00DA9695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB31DFC2212D83A00DA9695 /* LaunchScreen.storyboard */; };
-		AEB31E092212D83A00DA9695 /* GhibliTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E082212D83A00DA9695 /* GhibliTests.swift */; };
+		AEB31E092212D83A00DA9695 /* MovieApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E082212D83A00DA9695 /* MovieApiServiceTest.swift */; };
 		AEB31E142212D83A00DA9695 /* GhibliUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E132212D83A00DA9695 /* GhibliUITests.swift */; };
+		AEB31E222212DD9C00DA9695 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E212212DD9C00DA9695 /* MovieCell.swift */; };
+		AEB31E252213159C00DA9695 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E242213159C00DA9695 /* Movie.swift */; };
+		AEB31E282213165400DA9695 /* MovieApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31E272213165400DA9695 /* MovieApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +45,14 @@
 		AEB31DFD2212D83A00DA9695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEB31DFF2212D83A00DA9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEB31E042212D83A00DA9695 /* GhibliTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEB31E082212D83A00DA9695 /* GhibliTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliTests.swift; sourceTree = "<group>"; };
+		AEB31E082212D83A00DA9695 /* MovieApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiServiceTest.swift; sourceTree = "<group>"; };
 		AEB31E0A2212D83A00DA9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEB31E0F2212D83A00DA9695 /* GhibliUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhibliUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB31E132212D83A00DA9695 /* GhibliUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhibliUITests.swift; sourceTree = "<group>"; };
 		AEB31E152212D83A00DA9695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB31E212212DD9C00DA9695 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		AEB31E242213159C00DA9695 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		AEB31E272213165400DA9695 /* MovieApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,15 @@
 		AEB31DF22212D83800DA9695 /* Ghibli */ = {
 			isa = PBXGroup;
 			children = (
+				AEB31E262213163C00DA9695 /* Adapter */,
+				AEB31E232213159000DA9695 /* Entity */,
 				AEB31DF32212D83800DA9695 /* AppDelegate.swift */,
 				AEB31DF52212D83800DA9695 /* ViewController.swift */,
 				AEB31DF72212D83800DA9695 /* Main.storyboard */,
 				AEB31DFA2212D83A00DA9695 /* Assets.xcassets */,
 				AEB31DFC2212D83A00DA9695 /* LaunchScreen.storyboard */,
 				AEB31DFF2212D83A00DA9695 /* Info.plist */,
+				AEB31E212212DD9C00DA9695 /* MovieCell.swift */,
 			);
 			path = Ghibli;
 			sourceTree = "<group>";
@@ -110,7 +119,7 @@
 		AEB31E072212D83A00DA9695 /* GhibliTests */ = {
 			isa = PBXGroup;
 			children = (
-				AEB31E082212D83A00DA9695 /* GhibliTests.swift */,
+				AEB31E082212D83A00DA9695 /* MovieApiServiceTest.swift */,
 				AEB31E0A2212D83A00DA9695 /* Info.plist */,
 			);
 			path = GhibliTests;
@@ -123,6 +132,22 @@
 				AEB31E152212D83A00DA9695 /* Info.plist */,
 			);
 			path = GhibliUITests;
+			sourceTree = "<group>";
+		};
+		AEB31E232213159000DA9695 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				AEB31E242213159C00DA9695 /* Movie.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		AEB31E262213163C00DA9695 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				AEB31E272213165400DA9695 /* MovieApiService.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB31DF62212D83800DA9695 /* ViewController.swift in Sources */,
+				AEB31E282213165400DA9695 /* MovieApiService.swift in Sources */,
 				AEB31DF42212D83800DA9695 /* AppDelegate.swift in Sources */,
+				AEB31E252213159C00DA9695 /* Movie.swift in Sources */,
+				AEB31E222212DD9C00DA9695 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB31E092212D83A00DA9695 /* GhibliTests.swift in Sources */,
+				AEB31E092212D83A00DA9695 /* MovieApiServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
