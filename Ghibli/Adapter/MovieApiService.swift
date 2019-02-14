@@ -11,33 +11,32 @@ import RxSwift
 
 class MovieApiService {
 
-    func getMovieList() -> Observable<[Movie]> {
+    func getMovieList() -> Single<[Movie]> {
         let url = URL(string: "https://ghibliapi.herokuapp.com/films")!
         return get(url: url).map { data -> [Movie]? in
             return try? JSONDecoder().decode([Movie].self, from: data)
-        }.flatMap { Observable.from(optional: $0) }
+        }.flatMap { Observable.from(optional: $0).asSingle() }
     }
     
     
     //MARK: infrastructure
     
-    private func get(url: URL) -> Observable<Data> {
-        return Observable.create { observer in
+    private func get(url: URL) -> Single<Data> {
+        return Single.create { single in
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 error.map {
-                    observer.onError($0)
+                    single(.error($0))
                 }
-             
+                
                 data.map {
-                    observer.onNext($0)
-                    observer.onCompleted()
+                    single(.success($0))
                 }
             }
             
             task.resume()
             
             return Disposables.create { task.cancel() }
-            }
+        }
     }
     
 }

@@ -15,7 +15,7 @@ class MovieApiServiceTest: XCTestCase {
         let apiService = MovieApiService()
         let expectedMoviesLoaded = expectation(description: "expected movies loaded")
         let disposable = apiService.getMovieList()
-            .subscribe(onNext:{ movies in
+            .subscribe(onSuccess:{ movies in
             XCTAssertGreaterThan(movies.count, 1)
             expectedMoviesLoaded.fulfill()
         })

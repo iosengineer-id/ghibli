@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
         apiService.getMovieList()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] movies in
+            .subscribe(onSuccess: { [weak self] movies in
                 self?.movies = movies
                 self?.tableView.reloadData()
             }, onError: { [weak self] error in
