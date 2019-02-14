@@ -20,8 +20,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         apiService.getMovieList()
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] movies in
-                self?.updateMoviesAndReloadData(movies: movies)
+                self?.movies = movies
+                self?.tableView.reloadData()
             }, onError: { [weak self] error in
                 self?.displayMessage(error)
             }).disposed(by: disposeBag)
@@ -30,19 +32,10 @@ class ViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    private func updateMoviesAndReloadData(movies:[Movie]) {
-        self.movies = movies
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-    
     private func displayMessage(_ error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok bro", style: .default, handler: nil))
-            self?.present(alert, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok bro", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }

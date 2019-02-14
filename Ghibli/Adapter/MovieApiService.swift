@@ -13,12 +13,9 @@ class MovieApiService {
 
     func getMovieList() -> Observable<[Movie]> {
         let url = URL(string: "https://ghibliapi.herokuapp.com/films")!
-        return get(url: url).map { data in
-            if let movies = try? JSONDecoder().decode([Movie].self, from: data) {
-                return movies
-            }
-            return []
-        }
+        return get(url: url).map { data -> [Movie]? in
+            return try? JSONDecoder().decode([Movie].self, from: data)
+        }.flatMap { Observable.from(optional: $0) }
     }
     
     
@@ -27,12 +24,12 @@ class MovieApiService {
     private func get(url: URL) -> Observable<Data> {
         return Observable.create { observer in
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    observer.onError(error)
+                error.map {
+                    observer.onError($0)
                 }
              
-                if let data = data {
-                    observer.onNext(data)
+                data.map {
+                    observer.onNext($0)
                     observer.onCompleted()
                 }
             }
