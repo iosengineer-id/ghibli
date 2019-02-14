@@ -7,18 +7,40 @@
 //
 
 import Foundation
+import RxSwift
 
 class MovieApiService {
-    
-    func getMovieList(completion:@escaping ([Movie])->()) {
+
+    func getMovieList() -> Observable<[Movie]> {
         let url = URL(string: "https://ghibliapi.herokuapp.com/films")!
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
+        return get(url: url).map { data in
             if let movies = try? JSONDecoder().decode([Movie].self, from: data) {
-                completion(movies)
+                return movies
             }
+            return []
         }
-        
-        task.resume()
     }
+    
+    
+    //MARK: infrastructure
+    
+    private func get(url: URL) -> Observable<Data> {
+        return Observable.create { observer in
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    observer.onError(error)
+                }
+             
+                if let data = data {
+                    observer.onNext(data)
+                    observer.onCompleted()
+                }
+            }
+            
+            task.resume()
+            
+            return Disposables.create { task.cancel() }
+            }
+    }
+    
 }

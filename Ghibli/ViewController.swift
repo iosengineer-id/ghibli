@@ -7,21 +7,24 @@
 //
 
 import UIKit
-
+import RxSwift
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var movies = [Movie]()
     fileprivate let apiService = MovieApiService()
+    fileprivate let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        apiService.getMovieList { [weak self] movies in
-            self?.updateMoviesAndReloadData(movies: movies)
-        }
-        
+        apiService.getMovieList()
+            .subscribe(onNext: { [weak self] movies in
+                self?.updateMoviesAndReloadData(movies: movies)
+            }, onError: { [weak self] error in
+                self?.displayMessage(error)
+            }).disposed(by: disposeBag)
         
         tableView.estimatedRowHeight = 89
         tableView.rowHeight = UITableView.automaticDimension
@@ -33,6 +36,15 @@ class ViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+    
+    private func displayMessage(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok bro", style: .default, handler: nil))
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

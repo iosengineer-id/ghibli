@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		AE73DE6D221584D800AD3D23 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73DE6B221584D800AD3D23 /* RxSwift.framework */; };
 		AE73DE6E221584D800AD3D23 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73DE6C221584D800AD3D23 /* RxCocoa.framework */; };
+		AE73DE702215ADEE00AD3D23 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73DE6C221584D800AD3D23 /* RxCocoa.framework */; };
+		AE73DE712215ADEE00AD3D23 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73DE6B221584D800AD3D23 /* RxSwift.framework */; };
+		AE73DE732215ADEE00AD3D23 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73DE722215ADEE00AD3D23 /* RxTest.framework */; };
+		AE73DE792215AE1E00AD3D23 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE73DE762215AE1D00AD3D23 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE73DE7A2215AE1E00AD3D23 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE73DE772215AE1D00AD3D23 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE73DE7B2215AE1E00AD3D23 /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE73DE782215AE1E00AD3D23 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEB31DF42212D83800DA9695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31DF32212D83800DA9695 /* AppDelegate.swift */; };
 		AEB31DF62212D83800DA9695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB31DF52212D83800DA9695 /* ViewController.swift */; };
 		AEB31DF92212D83800DA9695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB31DF72212D83800DA9695 /* Main.storyboard */; };
@@ -38,9 +44,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AE73DE752215AE0600AD3D23 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE73DE792215AE1E00AD3D23 /* RxCocoa.framework in CopyFiles */,
+				AE73DE7A2215AE1E00AD3D23 /* RxSwift.framework in CopyFiles */,
+				AE73DE7B2215AE1E00AD3D23 /* RxTest.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AE73DE6B221584D800AD3D23 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		AE73DE6C221584D800AD3D23 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		AE73DE722215ADEE00AD3D23 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		AE73DE762215AE1D00AD3D23 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		AE73DE772215AE1D00AD3D23 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		AE73DE782215AE1E00AD3D23 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		AEB31DF02212D83800DA9695 /* Ghibli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghibli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB31DF32212D83800DA9695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEB31DF52212D83800DA9695 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE73DE732215ADEE00AD3D23 /* RxTest.framework in Frameworks */,
+				AE73DE702215ADEE00AD3D23 /* RxCocoa.framework in Frameworks */,
+				AE73DE712215ADEE00AD3D23 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +117,7 @@
 		AE73DE6A221584D800AD3D23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE73DE722215ADEE00AD3D23 /* RxTest.framework */,
 				AE73DE6C221584D800AD3D23 /* RxCocoa.framework */,
 				AE73DE6B221584D800AD3D23 /* RxSwift.framework */,
 			);
@@ -98,6 +127,9 @@
 		AEB31DE72212D83800DA9695 = {
 			isa = PBXGroup;
 			children = (
+				AE73DE762215AE1D00AD3D23 /* RxCocoa.framework */,
+				AE73DE772215AE1D00AD3D23 /* RxSwift.framework */,
+				AE73DE782215AE1E00AD3D23 /* RxTest.framework */,
 				AEB31DF22212D83800DA9695 /* Ghibli */,
 				AEB31E072212D83A00DA9695 /* GhibliTests */,
 				AEB31E122212D83A00DA9695 /* GhibliUITests */,
@@ -194,6 +226,7 @@
 				AEB31E002212D83A00DA9695 /* Sources */,
 				AEB31E012212D83A00DA9695 /* Frameworks */,
 				AEB31E022212D83A00DA9695 /* Resources */,
+				AE73DE752215AE0600AD3D23 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -543,6 +576,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GhibliTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,6 +600,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GhibliTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

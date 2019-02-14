@@ -14,10 +14,16 @@ class MovieApiServiceTest: XCTestCase {
     func testGetMovies() {
         let apiService = MovieApiService()
         let expectedMoviesLoaded = expectation(description: "expected movies loaded")
-        apiService.getMovieList { movies in
+        let disposable = apiService.getMovieList()
+            .subscribe(onNext:{ movies in
             XCTAssertGreaterThan(movies.count, 1)
             expectedMoviesLoaded.fulfill()
+        })
+        
+        defer {
+            disposable.dispose()
         }
+        
         
         self.waitForExpectations(timeout: 10, handler: nil)
     }
